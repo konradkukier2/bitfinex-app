@@ -1,0 +1,1 @@
+export const SELECT_TICKER = 'SELECT_TICKER';
