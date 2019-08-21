@@ -1,0 +1,40 @@
+@import '../assets/global.scss';
+
+.book-root {
+  color: $colorFontLightest;
+  margin: 18px;
+  display: flex;
+  justify-content: center;
+  background-color: $colorMain;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.book-asks-root, .book-bids-root {
+  color: $colorFontLight;
+  .item-container {
+    display: flex;
+    flex-direction: column;
+    width: 44vw;
+    .item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      font-size: 12px;
+      &.label {
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 11px;
+      }
+      .col {
+        width: 120px;
+        text-align: right;
+        &.count {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+

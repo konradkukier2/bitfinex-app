@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 import { tickerReducer } from './ticker/reducers';
+import { bookReducer } from './book/reducers';
 
 const rootReducer = combineReducers({
   ticker: tickerReducer,
+  book: bookReducer,
 });
 
 const store = createStore(

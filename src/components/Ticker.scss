@@ -1,12 +1,12 @@
 @import '../assets/global.scss';
 
 .ticker-root {
-  // width: 460px;
   background-color: $colorMain;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 18px;
+  max-width: 400px;
 
   .column {
     padding: 6px 18px;
