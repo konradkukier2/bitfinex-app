@@ -12,6 +12,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### Demo
+### Preview
 
-![bitfinex3](https://user-images.githubusercontent.com/12159534/63455315-d9137380-c44c-11e9-8f2e-54444266c7c2.gif)
+![bitfinex4](https://user-images.githubusercontent.com/12159534/63455544-41faeb80-c44d-11e9-8ede-9e2a1460b31c.gif)
