@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   channel: null,
   symbol: null,
   chanId: null,
-  prec: null,
+  prec: 'P1',
   freq: 'F1',
   len: null,
   pair: null,

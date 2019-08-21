@@ -9,6 +9,10 @@ const HARDCODED_SYMBOL = 'tBTCUSD';
 
 function BookContainer({ book, updateBook, updateBookEntries, subscribeBook, unsubscribeBook }) {
 
+  const changePrecision = (newPrecision) => {
+    console.log('call updateBook() action here with new precision...', newPrecision);
+  }
+
   useEffect(() => {
     const wss = new WebSocket(URL);
     wss.onmessage = (msg) => {
@@ -31,15 +35,22 @@ function BookContainer({ book, updateBook, updateBookEntries, subscribeBook, uns
         event: EVENTS.SUBSCRIBE,
         channel: CHANNEL_NAMES.BOOK,
         symbol: HARDCODED_SYMBOL,
-        freq: book.freq
+        freq: book.freq,
+        prec: book.prec
       });
 
       wss.send(msg);
     }
-  }, []);
+  }, []); // watch book.prec change here to resubscribe with new setting (handle unsubscribing on component unmount)
   return (
     <div>
       <OrderBook entries={book.data} />
+      <div style={{ margin: 12 }}>
+        <button onClick={() => changePrecision('P0')} >P0</button>
+        <button onClick={() => changePrecision('P1')} >P1</button>
+        <button onClick={() => changePrecision('P2')} >P2</button>
+        <button onClick={() => changePrecision('P3')} >P3</button>
+      </div>
     </div>
     );
 }
