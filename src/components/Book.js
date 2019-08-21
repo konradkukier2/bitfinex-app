@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Icon } from 'react-icons-kit';
-import { bitcoin } from 'react-icons-kit/fa/bitcoin';
-import { infoCircle } from 'react-icons-kit/fa/infoCircle';
-import { caretDown } from 'react-icons-kit/fa/caretDown';
-import { caretUp } from 'react-icons-kit/fa/caretUp';
+import React from 'react';
 import './Book.scss';
 import BookBids from './BookBids';
 import BookAsks from './BookAsks';
@@ -21,10 +16,8 @@ function Book({ entries }) {
   });
   return (
     <div className="book-root">
-
       <BookBids bids={bids} />
       <BookAsks asks={asks} />
-
     </div>
   )
 }

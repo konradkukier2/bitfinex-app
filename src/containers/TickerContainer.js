@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { updateTicker, subscribeTicker, unsubscribeTicker } from '../store/ticker/actions';
 import Ticker from '../components/Ticker';
+import { webSocket } from '../appConfig';
+const { CHANNEL_NAMES, EVENTS, HEARTBEAT_MSG, URL } = webSocket;
 
 const HARDCODED_SYMBOL = 'tBTCUSD';
 const HARDCODED_CURRENCY = 'USD';
 
 function TickerContainer({ ticker, updateTicker, subscribeTicker, unsubscribeTicker }) {
-  const TICKER_CHANNEL_NAME = 'ticker';
-  const HEARTBEAT_MSG = 'hb';
-  const [ name, setName ] = useState('');
+
   useEffect(() => {
-    const wss = new WebSocket('wss://api-pub.bitfinex.com/ws/2');
+    const wss = new WebSocket(URL);
     wss.onmessage = (msg) => {
       if (msg.data) {
         const data = JSON.parse(msg.data);
-        if (data && data.event && data.event === 'subscribed') {
+        if (data && data.event && data.event === EVENTS.SUBSCRIBED) {
           return subscribeTicker(data);
 
         }
@@ -27,14 +27,14 @@ function TickerContainer({ ticker, updateTicker, subscribeTicker, unsubscribeTic
     }
     wss.onopen = () => {
       const msg = JSON.stringify({
-        event: 'subscribe',
-        channel: TICKER_CHANNEL_NAME,
+        event: EVENTS.SUBSCRIBE,
+        channel: CHANNEL_NAMES.TICKER,
         symbol: HARDCODED_SYMBOL
       });
       wss.send(msg);
     }
   }, []);
-  const tickerProps = Object.assign({}, ticker.data, { pair: ticker.pair, currency: HARDCODED_CURRENCY});
+  const tickerProps = Object.assign({}, ticker.data, { pair: ticker.pair, currency: HARDCODED_CURRENCY });
   return (
     <div>
       <Ticker { ...tickerProps } />

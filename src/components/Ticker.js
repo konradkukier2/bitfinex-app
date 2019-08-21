@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Icon } from 'react-icons-kit';
 import { bitcoin } from 'react-icons-kit/fa/bitcoin';
 import { infoCircle } from 'react-icons-kit/fa/infoCircle';
@@ -14,7 +14,7 @@ function asPercent(x) {
   return (x * 100).toFixed(2) + '%';
 }
 
-function Ticker({ bid, bidSize, ask, askSize, dailyChange, dailyChangePerc, lastPrice, volume, high, low, currency, pair }) {
+function Ticker({ dailyChange, dailyChangePerc, lastPrice, volume, high, low, currency, pair }) {
   return (
     <div className="ticker-root">
 

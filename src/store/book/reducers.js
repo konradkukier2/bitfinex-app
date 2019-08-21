@@ -1,5 +1,5 @@
 import { UPDATE_BOOK, UPDATE_BOOK_ENTRIES, SUBSCRIBE_BOOK, UNSUBSCRIBE_BOOK } from './types'
-// const [ id, [ bid, bidSize, ask, askSize, dailyChange, dailyChangePerc, lastPrice, volume, high, low ]] = msg.data;
+
 const INITIAL_STATE = {
   channel: null,
   symbol: null,
@@ -20,7 +20,6 @@ export const bookReducer = (state = INITIAL_STATE, action) => {
       const updatedEntries = action.payload;
       const newData = { ...state.data };
       updatedEntries.forEach(entry => {
-        // console.log('entry', entry);
         if (entry[1] !== 0) {
           newData[entry[0]] = entry;
         }
