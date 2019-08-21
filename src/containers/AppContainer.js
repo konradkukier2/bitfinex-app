@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { selectTicker } from '../store/ticker/actions';
+import Ticker from '../containers/TickerContainer';
 
-function AppContainer({ ticker, selectTicker }) {
-  const [ name, setName ] = useState('');
+function AppContainer() {
+  // const [ name, setName ] = useState('');
   return (
     <div>
-      <h1>TICKER: {ticker.selected}</h1>
-      <input value={name} onChange={(e => setName(e.target.value))}></input>
-      <button onClick={() => selectTicker(name)}>Change ticker</button>
+      <Ticker />
     </div>
     );
 }
 
 const mapStateToProps = (state) => {
-  return {
-    ticker: state.ticker,
-  }
+  return state;
 };
 
-const actionCreators = {
-  selectTicker,
-}
-
-export default connect(mapStateToProps, actionCreators)(AppContainer);
+export default connect(mapStateToProps)(AppContainer);

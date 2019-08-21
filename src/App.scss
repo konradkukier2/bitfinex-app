@@ -1,0 +1,9 @@
+@import './assets/global.scss';
+
+.app-container {
+  display: flex;
+  justify-content: flex-start;
+  background-color: $colorMainLight;
+  height: 100vh;
+
+}

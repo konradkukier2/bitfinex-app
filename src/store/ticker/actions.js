@@ -1,8 +1,27 @@
-import { SELECT_TICKER } from './types'
+import { UPDATE_TICKER, SUBSCRIBE_TICKER, UNSUBSCRIBE_TICKER } from './types';
 
-export function selectTicker(ticker) {
+export function subscribeTicker({ channel, chanId, pair, symbol }) {
   return {
-    type: SELECT_TICKER,
-    payload: ticker,
+    type: SUBSCRIBE_TICKER,
+    payload: {
+      channel,
+      chanId,
+      pair,
+      symbol,
+    },
+  }
+}
+
+export function unsubscribeTicker() {
+  return {
+    type: UNSUBSCRIBE_TICKER,
+    payload: null,
+  }
+}
+
+export function updateTicker(data) {
+  return {
+    type: UPDATE_TICKER,
+    payload: data,
   }
 }

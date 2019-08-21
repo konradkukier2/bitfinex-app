@@ -1,0 +1,13 @@
+$colorMain: #1b262d;
+$colorMainLight: #2c3940;
+$colorFontLight: #b6b9ba;
+$colorFontLightest: #e6e6e6;
+$colorNegative: #8b2a2f;
+$colorPositive: #526c2e;
+
+@mixin flex($direction: row, $alignItems: flex-start, $justifyContent: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+}
